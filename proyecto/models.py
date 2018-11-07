@@ -46,7 +46,7 @@ class Venta(models.Model):
 
     Cliente       = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
-    numeroVenta = models.IntegerField()
+    numeroVenta = models.CharField(max_length=60)
 
     fecha        = models.DateField()
 
@@ -60,9 +60,9 @@ class Venta(models.Model):
 
 class detalleVenta (models.Model):
 
-    Carro = models.ForeignKey(Carro, on_delete=models.CASCADE)
+    carro = models.ForeignKey(Carro, on_delete=models.CASCADE)
 
-    Venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
 
 
 class detalleVentaInLine(admin.TabularInline):
