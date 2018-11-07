@@ -1,0 +1,25 @@
+{% extends 'blog/post_list.html' %}
+
+{% block content %}
+<br>
+<br>
+<br>
+
+<h1>Vista Carros </h1>
+
+<div class="card border-primary mb-3" style="max-width: 100%;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h4 class="card-title">{{ carro.linea }}</h4>
+    <p class="card-text">
+    <p>{{ carro.Marca}}</p>
+    <p>{{ carro.linea }}</p>
+    <p>{{ carro.anio}}</p>
+    <p>{{ carro.precio }}</p>
+    <a class="btn btn-default" href=""><span class="glyphicon glyphicon-pencil">Editar</span></a>
+      <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove">Borrar</span></a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
