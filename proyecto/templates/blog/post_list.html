@@ -19,7 +19,7 @@
                       <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item active">
-                          <a class="nav-link" href="" class="top-menu"><span class="glyphicon glyphicon-list">  Carros </span></a>
+                          <a class="nav-link" href="{%url 'listar_vehiculo'%}" class="top-menu"><span class="glyphicon glyphicon-list">  Carros </span></a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="" class="top-menu"><span class="glyphicon glyphicon-list">  Marcas </span></a>
@@ -28,7 +28,7 @@
                         {% if user.is_authenticated %}
 
                         <li class="nav-item">
-                            <a class="nav-link" href="" ><span class="glyphicon glyphicon-list">Nuevo Carro</span></a>
+                            <a class="nav-link" href="{%url 'crear_vehiculo'%}" ><span class="glyphicon glyphicon-list">Nuevo Carro</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="" ><span class="glyphicon glyphicon-list">Nueva Marca</span></a>

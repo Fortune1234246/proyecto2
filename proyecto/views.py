@@ -34,13 +34,18 @@ def vehiculo_detail(request, pk):
     return render(request, 'blog/datelle_vehiculo.html', {'carro': carro})
 
 def vehiculos_edit(request, pk):
-    Carro = get_object_or_404(Carro, pk=pk)
+    carro = get_object_or_404(Carro, pk=pk)
     if request.method == "POST":
-        form = CarroForm(request.POST, instance=Carro)
+        form = CarroForm(request.POST, instance=carro)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('album_detail', pk=post.pk)
+            return redirect('vehiculo_detail', pk=post.pk)
     else:
-        form = CarroForm(instance=Carro)
-        return render(request, 'blog/carro_edit.html', {'form': form})
+        form = CarroForm(instance=carro)
+    return render(request, 'blog/carro_new.html', {'form': form})
+
+def vehiculos_remove(request, pk):
+    carro = get_object_or_404(Carro, pk=pk)
+    carro.delete()
+    return redirect('listar_vehiculo')

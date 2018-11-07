@@ -16,8 +16,8 @@
     <p>{{ carro.linea }}</p>
     <p>{{ carro.anio}}</p>
     <p>{{ carro.precio }}</p>
-    <a class="btn btn-default" href=""><span class="glyphicon glyphicon-pencil">Editar</span></a>
-      <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove">Borrar</span></a>
+    <a class="btn btn-default" href="{% url 'vehiculos_edit' pk=carro.pk%}"><span class="glyphicon glyphicon-pencil">Editar</span></a>
+      <a class="btn btn-default" href="{% url 'vehiculos_remove' pk=carro.pk%}"><span class="glyphicon glyphicon-remove">Borrar</span></a>
     </p>
   </div>
 </div>
