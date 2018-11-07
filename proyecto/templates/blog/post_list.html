@@ -22,7 +22,10 @@
                           <a class="nav-link" href="{%url 'listar_vehiculo'%}" class="top-menu"><span class="glyphicon glyphicon-list">  Carros </span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="" class="top-menu"><span class="glyphicon glyphicon-list">  Marcas </span></a>
+                          <a class="nav-link" href="{%url 'listar_marcas'%}" class="top-menu"><span class="glyphicon glyphicon-list">  Marcas </span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{%url 'listar_ventas'%}" class="top-menu"><span class="glyphicon glyphicon-list">  Ventas </span></a>
                         </li>
 
                         {% if user.is_authenticated %}
@@ -31,7 +34,7 @@
                             <a class="nav-link" href="{%url 'crear_vehiculo'%}" ><span class="glyphicon glyphicon-list">Nuevo Carro</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" ><span class="glyphicon glyphicon-list">Nueva Marca</span></a>
+                            <a class="nav-link" href="{%url 'crear_marca'%}" ><span class="glyphicon glyphicon-list">Nueva Marca</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="" ><span class="glyphicon glyphicon-list">Nueva Cancion</span></a>

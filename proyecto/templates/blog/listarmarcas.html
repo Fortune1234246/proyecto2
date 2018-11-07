@@ -1,0 +1,25 @@
+{% extends 'blog/post_list.html' %}
+{% block content %}
+<br>
+<br>
+<h1>Marcas</h1>
+<a  class="btn btn-outline-primary" href="{%url 'crear_marca'%}"> Nuevo </a>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Año de Fundacion</th>
+        <th scope="col">Capital</th>
+      </tr>
+    </thead>
+        {% for marca in marca %}
+        <tr class="table-active">
+
+            <td>{{ marca.nombre }} </td>
+            <td>{{ marca.anio_fundacion }}</td>
+            <td>{{ marca.capital }}</td>
+            <td><a class="badge badge-success" href="{%url 'marcas_detail' pk=marca.pk%}"> Ver </a> </td>
+          </tr>
+        {% endfor %}
+</table>
+{% endblock %}

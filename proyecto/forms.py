@@ -6,4 +6,12 @@ class CarroForm(forms.ModelForm):
         model = Carro
         fields = ('Marca', 'anio', 'linea', 'precio')
 
-        
+class MarcaForm(forms.ModelForm):
+    class Meta:
+        model = Marca
+        fields = ('nombre', 'anio_fundacion', 'capital')
+
+class VentaForm(forms.ModelForm):
+    class Meta:
+        model = Venta
+        fields = ('Cliente', 'numeroVenta', 'fecha', 'detalleVenta')
