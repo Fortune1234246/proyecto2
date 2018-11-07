@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .forms import CarroForm, MarcaForm, VentaForm
-from proyecto.models import Marca, Cliente, Carro, Venta
+from proyecto.models import Marca, Cliente, Carro, Venta, detalleVenta
 from django.views.generic.detail import DetailView
 from django.utils import timezone
 from django.shortcuts import redirect
@@ -81,12 +81,13 @@ def listar_ventas(request):
 
 def ventas_new(request):
     if request.method == "POST":
-        form = VentaForm(request.POST)
-        if form.is_valid():
-            venta = Venta.objects.create(nombre=form.cleaned_data['nombre'], descripcion=form.cleaned_data['descripcion'], album=form.cleaned_data['album'], artista=form.cleaned_data['artista'])
-            post = form.save(commit=False)
-            post.save()
-            return redirect('listar_ventas', pk=post.pk)
+        formulario = VentaForm(request.POST)
+        if formulario.is_valid():
+            venta = Venta.objects.create(Cliente=formulario.cleaned_data['Cliente'], numeroVenta=formulario.cleaned_data['numeroVenta'], fecha=formulario.cleaned_data['fecha'])
+            for carro_id in request.POST.getlist('carro'):
+                detalleVenta = detalleVenta(carro_id=carro_id, venta_id = venta.id)
+                detalleVenta.save()
+            messages.add_message(request, messages.SUCCESS, 'Venta hecha exitosamente')
     else:
-        form = VentaForm()
-        return render(request, 'blog/listarventa.html', {'form': form})
+        formulario = VentaForm()
+    return render(request, 'blog/ventas_new.html', {'formulario': formulario})

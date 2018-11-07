@@ -44,7 +44,7 @@ class Carro(models.Model):
 
 class Venta(models.Model):
 
-    Cliente       = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    Cliente      = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     numeroVenta = models.CharField(max_length=60)
 
